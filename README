@@ -1,0 +1,31 @@
+pix_background_depth
+======================================
+
+Pure Data / Gem external to subtract a reference picture from a Kinect depthmap (background subtraction).
+
+
+(C) 2013 by Antoine Villeret and Matthias Kronlachner
+__________________________________________________________
+
+pix_openni and pix_freenect can (if set to raw mm mode) output the depth information in millimeter in the red and green color channel.
+
+this external allows you to filter out parts of the depthmap by subtracting a reference image
+
+all computation is done on cpu!
+consider using gpu shaders if you don't need the data on cpu side!
+
+_______________
+:::CHANGELOG:::
+
+
+ ________________
+:::KNOWN BUGS:::
+
+
+ ________________
+:::THINGS TO DO:::
+
+
+
+questions: antoine.villeret@gmail.com
+m.kronlachner@gmail.com

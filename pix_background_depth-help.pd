@@ -1,0 +1,47 @@
+#N canvas 451 114 610 482 10;
+#X obj 364 193 gemwin;
+#X msg 313 146 destroy;
+#X msg 405 163 color 1 0 0;
+#X obj 63 92 gemhead;
+#X obj 168 325 pix_texture;
+#X obj 168 347 rectangle 4 3;
+#X text 59 390 message :;
+#X text 11 26 for use with pix_freenect or pix_openni depth output
+(mm output only);
+#X obj 185 200 bng 15 250 50 0 empty empty setrefpic 17 7 0 10 -262144
+-1 -1;
+#X obj 168 275 pix_depth_subtract 200;
+#X msg 211 239 mode \$1;
+#X obj 211 218 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 364 123 dimen 640 480 \, create \, 1;
+#X obj 168 91 gemhead;
+#X msg 83 132 angle \$1;
+#X floatatom 83 114 5 0 0 0 - - -;
+#X obj 63 154 pix_freenect 0 1 1;
+#X floatatom 297 255 5 0 0 0 threshold - -;
+#X obj 168 174 alpha;
+#X obj 198 300 pix_depth2rgba 10000;
+#X text 9 7 background subtraction for depthmaps;
+#X text 70 408 bang: take reference snapshot;
+#X text 72 430 mode 0/1:;
+#X text 312 275 1st arg: threshold;
+#X text 353 441 Matthias Kronlachner;
+#X text 353 426 Antoine Villeret;
+#X text 31 57 this just sets the alpha channel to zero for filtered
+pixels!;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 16 0;
+#X connect 4 0 5 0;
+#X connect 8 0 9 0;
+#X connect 9 0 4 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 12 0 0 0;
+#X connect 13 0 16 1;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 16 1 18 0;
+#X connect 17 0 9 1;
+#X connect 18 0 9 0;

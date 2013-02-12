@@ -64,10 +64,13 @@ class GEM_EXTERN pix_background_depth : public GemPixObj
 
     	//////////
     	// Set the new threshold value
-    	static void    	setrefMess(void *data);
-    	static void	    threshMess(void *data, float value);
-        static void	    modeMess(void *data, float value);
-
+    static void    	setrefMess(void *data);
+    static void	    threshMess(void *data, t_floatarg value);
+    static void	    modeMess(void *data, t_floatarg value);
+    static void     activeMessCallback(void *data, t_floatarg value);
+  
+    bool m_active; // switch on/off processing
+  
 		int m_thresh;
 		bool m_setref;
         bool m_mode;
